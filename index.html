@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="meteor"></div>
+    <div id="comet"></div>
     <header>
         <nav>
             <ul>
@@ -50,6 +51,26 @@
 
         // Start the animation
         randomInterval();
+
+        const comet = document.getElementById('comet');
+
+        function showComet() {
+            comet.style.top = (Math.random() * window.innerHeight / 2) + 'px';
+            comet.classList.add('comet-animate');
+
+            setTimeout(() => {
+                comet.classList.remove('comet-animate');
+            }, 10000); // Animation duration is 10s
+        }
+
+        function randomCometInterval() {
+            showComet();
+            const interval = Math.random() * 10000 + 20000; // 20-30 seconds
+            setTimeout(randomCometInterval, interval);
+        }
+
+        // Start the comet animation
+        randomCometInterval();
     </script>
 </body>
 </html>
