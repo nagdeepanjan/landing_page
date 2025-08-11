@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="meteor"></div>
     <header>
         <nav>
             <ul>
@@ -23,5 +24,32 @@
             <p>This is a placeholder for a short bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </section>
     </main>
+    <script>
+        const meteor = document.getElementById('meteor');
+
+        function showMeteor() {
+            // Set a random starting position and angle
+            const angle = -Math.PI / 4; // 45 degrees
+            const startX = Math.random() * window.innerWidth;
+            meteor.style.left = startX + 'px';
+            meteor.style.top = '-100px';
+
+            meteor.classList.add('animate');
+
+            // Remove the animation class after it finishes
+            setTimeout(() => {
+                meteor.classList.remove('animate');
+            }, 3000); // Animation duration
+        }
+
+        function randomInterval() {
+            showMeteor();
+            const interval = Math.random() * 5000 + 10000; // Random interval between 10 and 15 seconds
+            setTimeout(randomInterval, interval);
+        }
+
+        // Start the animation
+        randomInterval();
+    </script>
 </body>
 </html>

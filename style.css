@@ -52,3 +52,41 @@ main {
     margin: 1rem auto;
     line-height: 1.6;
 }
+
+#meteor {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    z-index: 9999;
+}
+
+#meteor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.animate {
+    animation: fall 3s linear forwards;
+}
+
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) rotate(225deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(150vw, 150vh) rotate(225deg);
+        opacity: 0;
+    }
+}
